@@ -25,21 +25,23 @@ export default function Nav() {
             const active = location.pathname === to || (to !== '/' && location.pathname.startsWith(to))
             return (
               <li key={to}>
-                <Link
-                  to={to}
-                  className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    active ? 'text-[var(--color-accent)]' : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
-                  }`}
-                >
-                  {label}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute inset-0 rounded-md bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 -z-10"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-                    />
-                  )}
-                </Link>
+                <motion.div whileHover={{ y: -2 }} className="relative">
+                  <Link
+                    to={to}
+                    className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors block ${
+                      active ? 'text-[var(--color-accent)]' : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
+                    }`}
+                  >
+                    {label}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute inset-0 rounded-md bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 -z-10"
+                        transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
               </li>
             )
           })}
