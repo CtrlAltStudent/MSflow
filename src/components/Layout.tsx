@@ -1,12 +1,13 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Nav from './Nav'
+import Footer from './Footer'
 
 /** Czas przejścia między stronami (spójność z planem) */
 const transitionDuration = 0.25
 
 /**
- * Główny layout – nawigacja + zawartość stron z płynnym przejściem (AnimatePresence).
+ * Główny layout – nawigacja + zawartość + stopka z płynnym przejściem (AnimatePresence).
  */
 export default function Layout() {
   const location = useLocation()
@@ -27,6 +28,7 @@ export default function Layout() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <Footer />
     </div>
   )
 }

@@ -6,6 +6,7 @@ const linki = [
   { to: '/o-mnie', label: 'O mnie' },
   { to: '/projekty', label: 'Projekty' },
   { to: '/pobieralnia', label: 'Pobieralnia' },
+  { to: '/o-mnie#kontakt', label: 'Kontakt' },
 ] as const
 
 /**
@@ -22,7 +23,12 @@ export default function Nav() {
         </Link>
         <ul className="flex gap-1 sm:gap-4">
           {linki.map(({ to, label }) => {
-            const active = location.pathname === to || (to !== '/' && location.pathname.startsWith(to))
+            const active =
+              to === '/o-mnie#kontakt'
+                ? location.pathname === '/o-mnie' && location.hash === '#kontakt'
+                : to === '/o-mnie'
+                  ? location.pathname === '/o-mnie' && location.hash !== '#kontakt'
+                  : location.pathname === to || (to !== '/' && location.pathname.startsWith(to))
             return (
               <li key={to}>
                 <motion.div whileHover={{ y: -2 }} className="relative">
