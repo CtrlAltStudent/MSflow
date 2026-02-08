@@ -1,15 +1,19 @@
-/* Blackframe / msflow.pl – motyw ciemny, akcent */
+/* Blackframe / msflow.pl – motyw jasny, przyjazny, pro-uzytkownik */
 @import "tailwindcss";
 
 :root {
-  /* Kolory motywu Blackframe */
-  --color-bg: #0a0a0b;
-  --color-surface: #121214;
-  --color-border: #27272a;
-  --color-text: #fafafa;
-  --color-muted: #a1a1aa;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
+  /* Kolory: jasne tło, czytelny tekst, żywy akcent */
+  --color-bg: #f0f4ff;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  /* Dla orbów i dekoracji – widoczne na jasnym */
+  --color-orb-blue: rgba(59, 130, 246, 0.45);
+  --color-orb-violet: rgba(139, 92, 246, 0.4);
+  --color-particle: rgba(37, 99, 235, 0.35);
 }
 
 html {
@@ -19,9 +23,11 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #root {
@@ -52,15 +58,15 @@ body {
   }
 }
 
-/* Gradient na tekście – animowany (tytuł Blackframe) */
+/* Gradient na tekście – animowany (tytuł Blackframe), czytelny na jasnym */
 .gradient-text-hero {
   background: linear-gradient(
     120deg,
-    #fafafa 0%,
-    #e0e7ff 25%,
-    #93c5fd 50%,
-    #c4b5fd 75%,
-    #fafafa 100%
+    #1e293b 0%,
+    #2563eb 25%,
+    #6366f1 50%,
+    #7c3aed 75%,
+    #1e293b 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -118,4 +124,18 @@ body {
   height: 3px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+/* Bezpieczny obszar na telefonach z wycięciem */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Minimalna wysokość przycisków / linków (touch) */
+.min-touch {
+  min-height: 44px;
+  min-width: 44px;
 }

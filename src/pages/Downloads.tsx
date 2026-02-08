@@ -19,7 +19,7 @@ export default function Downloads() {
   const list = (items ?? []) as DownloadItem[]
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20">
       <motion.h1
         className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-8 section-title-accent"
         initial={{ opacity: 0, y: 16 }}

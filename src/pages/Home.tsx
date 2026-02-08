@@ -58,10 +58,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero – powitanie, nazwa Blackframe, tło z orbami i cząsteczkami; parallax przy scrollu */}
+      {/* Hero – powitanie, Blackframe, tło; na mobile mniejszy padding i CTA w kolumnie */}
       <section
         ref={heroRef}
-        className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-4"
+        className="relative min-h-[80vh] sm:min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-3 sm:px-4 pt-6 pb-10 sm:pt-8 sm:pb-12"
       >
         {!reducedMotion && <ParticleBackground />}
         <HeroBackground />
@@ -69,7 +69,7 @@ export default function Home() {
 
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
-          className="relative z-10 text-center max-w-3xl mx-auto px-6 py-10 rounded-2xl border border-[var(--color-accent)]/20 bg-[var(--color-bg)]/40 backdrop-blur-sm shadow-[0_0_60px_-12px_rgba(59,130,246,0.15)]"
+          className="relative z-10 text-center max-w-3xl mx-auto w-full px-4 py-6 sm:px-6 sm:py-10 rounded-2xl border border-[var(--color-accent)]/25 bg-[var(--color-surface)]/80 backdrop-blur-md shadow-xl shadow-[var(--color-accent)]/10"
           variants={container}
           initial="hidden"
           animate="visible"
@@ -87,14 +87,14 @@ export default function Home() {
           {about?.openToWork && (
             <motion.span
               variants={item}
-              className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-[var(--color-accent)]/20 text-[var(--color-accent)] border border-[var(--color-accent)]/40 mb-4"
+              className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--color-accent)]/15 text-[var(--color-accent)] border border-[var(--color-accent)]/40 mb-4"
             >
               Szukam współpracy
             </motion.span>
           )}
           <motion.h1
             variants={container}
-            className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 flex flex-wrap justify-center gap-0.5 sm:gap-1"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 flex flex-wrap justify-center gap-0.5 sm:gap-1"
           >
             {titleLetters.map((letter, i) => (
               <motion.span
@@ -109,47 +109,51 @@ export default function Home() {
           </motion.h1>
           <motion.p
             variants={item}
-            className="text-[var(--color-muted)] text-lg sm:text-xl mb-10"
+            className="text-[var(--color-muted)] text-base sm:text-lg md:text-xl mb-6 sm:mb-10 px-0 sm:px-2"
           >
             {home?.subtitle ?? 'Strona wizytówkowa i portfolio. Projekty, aplikacje do pobrania i więcej.'}
           </motion.p>
-          <motion.div variants={item} className="flex flex-wrap gap-4 justify-center">
+          <motion.div
+            variants={item}
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center items-stretch sm:items-center"
+          >
             <motion.div
               ref={btnRef}
               onMouseMove={onMouseMove}
               onMouseLeave={onMouseLeave}
               style={{ x: magnetic.x, y: magnetic.y }}
-              whileHover={{ scale: 1.03, y: -2 }}
+              whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="min-h-[44px] flex items-center justify-center"
             >
               <Link
                 to="/o-mnie"
-                className="inline-block px-6 py-3 rounded-lg bg-[var(--color-accent)] text-white font-medium shadow-lg shadow-[var(--color-accent)]/25 hover:shadow-[var(--color-accent)]/40 transition-shadow"
+                className="inline-block w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-[var(--color-accent)] text-white font-medium shadow-lg shadow-[var(--color-accent)]/25 hover:shadow-[var(--color-accent)]/40 transition-shadow"
               >
                 O mnie
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} className="min-h-[44px] flex items-center justify-center">
               <Link
                 to="/o-mnie#kontakt"
-                className="inline-block px-6 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-accent)]/50 text-[var(--color-text)] font-medium hover:bg-[var(--color-accent)]/10 transition-colors"
+                className="inline-block w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-[var(--color-surface)] border-2 border-[var(--color-accent)]/50 text-[var(--color-text)] font-medium hover:bg-[var(--color-accent)]/10 transition-colors"
               >
                 Kontakt
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} className="min-h-[44px] flex items-center justify-center">
               <Link
                 to="/projekty"
-                className="inline-block px-6 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] font-medium hover:border-[var(--color-accent)]/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all"
+                className="inline-block w-full sm:w-auto text-center px-6 py-3 rounded-xl border-2 border-[var(--color-border)] text-[var(--color-text)] font-medium hover:border-[var(--color-accent)]/50 hover:shadow-lg hover:shadow-[var(--color-accent)]/10 transition-all"
               >
                 Projekty
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} className="min-h-[44px] flex items-center justify-center">
               <Link
                 to="/pobieralnia"
-                className="inline-block px-6 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] font-medium hover:border-[var(--color-accent)]/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all"
+                className="inline-block w-full sm:w-auto text-center px-6 py-3 rounded-xl border-2 border-[var(--color-border)] text-[var(--color-text)] font-medium hover:border-[var(--color-accent)]/50 hover:shadow-lg hover:shadow-[var(--color-accent)]/10 transition-all"
               >
                 Pobieralnia
               </Link>
@@ -170,12 +174,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sekcje pod Hero – karty z ikonami i akcentem */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-[var(--color-border)] relative">
+      {/* Sekcje pod Hero – karty z ikonami i akcentem; na mobile jedna kolumna, wygodne karty */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-24 border-t border-[var(--color-border)] relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent" aria-hidden />
-        <div className="grid sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8">
           <motion.div
-            className="group relative p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)]"
+            className="group relative p-5 sm:p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)] shadow-sm hover:shadow-lg transition-shadow"
             initial={{ opacity: 0, x: -40, filter: 'blur(4px)' }}
             whileInView={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}
@@ -213,7 +217,7 @@ export default function Home() {
             </Link>
           </motion.div>
           <motion.div
-            className="group relative p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)]"
+            className="group relative p-5 sm:p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)] shadow-sm hover:shadow-lg transition-shadow"
             initial={{ opacity: 0, x: 40, filter: 'blur(4px)' }}
             whileInView={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}
@@ -238,7 +242,7 @@ export default function Home() {
             </Link>
           </motion.div>
           <motion.div
-            className="group relative p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)]"
+            className="group relative p-5 sm:p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] cursor-pointer overflow-hidden border-l-4 border-l-[var(--color-accent)] shadow-sm hover:shadow-lg transition-shadow"
             initial={{ opacity: 0, x: -40, filter: 'blur(4px)' }}
             whileInView={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}

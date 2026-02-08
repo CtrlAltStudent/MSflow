@@ -25,27 +25,28 @@ export default function FloatingElements() {
       {elements.map((el, i) => (
         <div
           key={i}
-          className="absolute opacity-20 text-[var(--color-accent)]"
+          className="absolute text-[var(--color-accent)]"
           style={{
             left: el.left,
             top: el.top,
             width: el.size,
             height: el.size,
+            opacity: 0.5,
             filter: el.blur ? `blur(${el.blur}px)` : undefined,
             animation: reducedMotion ? 'none' : `float-drift ${el.duration}s ease-in-out infinite`,
             animationDelay: `${el.delay}s`,
           }}
         >
-          {/* Kształt: na przemian kółko / kwadrat */}
+          {/* Kształty wyraźne na jasnym tle */}
           {i % 2 === 0 ? (
             <div
               className="w-full h-full rounded-full border-2 border-current"
-              style={{ borderColor: 'rgba(59, 130, 246, 0.4)' }}
+              style={{ borderColor: 'rgba(37, 99, 235, 0.55)' }}
             />
           ) : (
             <div
               className="w-full h-full rounded-lg border-2 border-current rotate-45"
-              style={{ borderColor: 'rgba(139, 92, 246, 0.35)' }}
+              style={{ borderColor: 'rgba(99, 102, 241, 0.5)' }}
             />
           )}
         </div>

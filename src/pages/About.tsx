@@ -29,7 +29,7 @@ export default function About() {
   const skills = about.skills ?? []
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20">
       {/* Nagłówek: imię i nazwisko (lub "O mnie"), rola, lokalizacja + akcent */}
       <motion.header
         className="mb-10 pb-6 border-b border-[var(--color-border)]"
@@ -74,7 +74,7 @@ export default function About() {
             ?
           </div>
         )}
-        <div className="min-w-0 flex-1 pl-6 border-l-4 border-l-[var(--color-accent)]/60">
+        <div className="min-w-0 flex-1 pl-4 sm:pl-6 border-l-4 border-l-[var(--color-accent)]/60">
           <p className="text-[var(--color-muted)] leading-relaxed whitespace-pre-wrap mb-4">
             {about.bio || 'Tutaj możesz dodać krótkie bio (edycja w panelu admina).'}
           </p>
@@ -111,7 +111,7 @@ export default function About() {
       {/* Kontakt – CTA + przyciski z ikonami */}
       <motion.section
         id="kontakt"
-        className="mb-12 scroll-mt-24 p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]"
+        className="mb-12 scroll-mt-20 sm:scroll-mt-24 p-4 sm:p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
@@ -134,7 +134,7 @@ export default function About() {
             <a
               href={`mailto:${about.email}`}
               title="E-mail"
-              className="flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
+              className="flex items-center justify-center min-w-[48px] min-h-[48px] w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
             >
               <IconEmail />
             </a>
@@ -145,7 +145,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
-              className="flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
+              className="flex items-center justify-center min-w-[48px] min-h-[48px] w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
             >
               <IconGitHub />
             </a>
@@ -156,7 +156,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
-              className="flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
+              className="flex items-center justify-center min-w-[48px] min-h-[48px] w-12 h-12 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-accent)] transition-colors"
             >
               <IconLinkedIn />
             </a>

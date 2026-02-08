@@ -78,15 +78,16 @@ export default function ParticleBackground() {
         p.vy *= 0.99
       }
 
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)'
-      ctx.lineWidth = 0.8
+      /* Linie łączące – widoczne na jasnym tle */
+      ctx.strokeStyle = 'rgba(37, 99, 235, 0.28)'
+      ctx.lineWidth = 1
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i]
           const b = particles[j]
           const d = Math.hypot(a.x - b.x, a.y - b.y)
           if (d < CONNECT_DISTANCE) {
-            ctx.globalAlpha = 1 - d / CONNECT_DISTANCE
+            ctx.globalAlpha = (1 - d / CONNECT_DISTANCE) * 0.9
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
@@ -95,10 +96,10 @@ export default function ParticleBackground() {
           }
         }
       }
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.5)'
+      ctx.fillStyle = 'rgba(37, 99, 235, 0.55)'
       particles.forEach((p) => {
         ctx.beginPath()
-        ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2)
+        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2)
         ctx.fill()
       })
 
