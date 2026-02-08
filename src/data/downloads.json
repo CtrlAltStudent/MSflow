@@ -1,0 +1,11 @@
+[
+  {
+    "id": "przyklad",
+    "name": "Przykładowa aplikacja",
+    "version": "1.0.0",
+    "description": "Opis – możesz dodać tutaj pliki .exe, .zip itd. i link do pobrania.",
+    "fileUrl": "/downloads/placeholder.zip",
+    "fileSize": "—",
+    "date": "2025-02-08"
+  }
+]

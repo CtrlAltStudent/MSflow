@@ -1,0 +1,11 @@
+[
+  {
+    "id": "msflow",
+    "title": "MSflow",
+    "description": "Strona wizytówkowa i portfolio – Blackframe na msflow.pl.",
+    "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+    "repoUrl": "https://github.com/CtrlAltStudent/MSflow",
+    "demoUrl": null,
+    "image": null
+  }
+]
