@@ -2,6 +2,9 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Nav from './Nav'
 import Footer from './Footer'
+import ScrollProgress from './ScrollProgress'
+import BackToTop from './BackToTop'
+import PageBackground from './PageBackground'
 
 /** Czas przejścia między stronami (spójność z planem) */
 const transitionDuration = 0.25
@@ -14,8 +17,10 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--color-bg)]">
+      <ScrollProgress />
       <Nav />
-      <main className="flex-1 overflow-x-hidden">
+      <main className="flex-1 overflow-x-hidden relative">
+        {location.pathname !== '/' && <PageBackground />}
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -29,6 +34,7 @@ export default function Layout() {
         </AnimatePresence>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   )
 }

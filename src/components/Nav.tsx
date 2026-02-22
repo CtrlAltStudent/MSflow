@@ -8,6 +8,7 @@ const linki = [
   { to: '/projekty', label: 'Projekty' },
   { to: '/pobieralnia', label: 'Pobieralnia' },
   { to: '/o-mnie#kontakt', label: 'Kontakt' },
+  { to: '/zabawki', label: 'Zabawki' },
 ] as const
 
 /**

@@ -5,6 +5,7 @@ import { useContent } from '../hooks/useContent'
 import HeroBackground from '../components/HeroBackground'
 import ParticleBackground from '../components/ParticleBackground'
 import FloatingElements from '../components/FloatingElements'
+import KonamiEgg from '../components/KonamiEgg'
 import { IconUser, IconProjects, IconDownload } from '../components/icons/SectionIcons'
 
 /** Opóźnienia i warianty animacji wejścia */
@@ -58,6 +59,7 @@ export default function Home() {
 
   return (
     <>
+      <KonamiEgg />
       {/* Hero – powitanie, Blackframe, tło; na mobile mniejszy padding i CTA w kolumnie */}
       <section
         ref={heroRef}

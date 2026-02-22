@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Downloads from './pages/Downloads'
+import Toys from './pages/Toys'
 import AdminLogin from './pages/admin/Login'
 import AdminDashboard from './pages/admin/Dashboard'
 import AdminAboutEdit from './pages/admin/AboutEdit'
@@ -24,6 +25,7 @@ function App() {
           <Route path="o-mnie" element={<About />} />
           <Route path="projekty" element={<Projects />} />
           <Route path="pobieralnia" element={<Downloads />} />
+          <Route path="zabawki" element={<Toys />} />
         </Route>
         <Route path="admin">
           <Route path="login" element={<AdminLogin />} />
